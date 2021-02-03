@@ -16,12 +16,14 @@ Developpement plus avancé
 ///////////////////////////////////////////////////////////////////////////////////////////
 8/Utilisation du useState dans App.txs
 9/Creation d'un etat pr gerer le STATE (class tyscript pr modeliser un pokemon (pokemon.ts) & un fichier de donnée contenant qqs pokemons (mock-pokemon.ts) à injecter ds notre composant)
-10/On  def une variable state / init state / type state (affiche le nbre de pokemon present ds le state du component) et affiché, il y  a 12 pokémons
+10/On  def une variable state / init state / type state (affiche le nbre de pokemon present ds le state du component) et affiché, il y  a 12 pokémons (useState)
 11/Utilisation du useEffect au lieu d'utiliser les Methodes ds cycles de vie! 
 Init le state avc un [] / load la liste POKEMON (mock-pokemon.ts) à l'initialisation
 du composant / liste des pok load only one time
-12/
-13/
+///////////////////////////////////////////////////////////////////////////////
+12/ ON stylyse via 'MATERIALIZE' dans le index.html
+///////////////////////////////////////////////////////////////////////////
+13/Afficher une liste de 12 pokemons (METHOD map()) via materialize
 14/
 15/
 16/
