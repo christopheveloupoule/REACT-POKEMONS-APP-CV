@@ -28,8 +28,8 @@ du composant / liste des pok load only one time
 14/PROPS : On va passer les 'props' decoupage de notre appli App => PokemonsList => PokemonCard (afficher le pokemon a propremment parlé !)
 15/Creation du dossier component du file pokemon-card 
 16/Creation du dossier pages du file pokemon-list 
-17/
-18/
+17/Passage de props à pokemon-card
+18/application de css a pokemon card
 19/
 20/
 
