@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent} from 'react';
   
-const App: React.FC = () => {
+const App: FunctionComponent = () => {
  const name: String = 'React';
     
  return (
