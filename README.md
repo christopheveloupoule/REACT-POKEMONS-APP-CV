@@ -21,11 +21,12 @@ Developpement plus avancé
 Init le state avc un [] / load la liste POKEMON (mock-pokemon.ts) à l'initialisation
 du composant / liste des pok load only one time
 ///////////////////////////////////////////////////////////////////////////////
-12/ ON stylyse via 'MATERIALIZE' dans le index.html
+12/ MATERIALIZE : On stylyse via 'MATERIALIZE' dans le index.html
 ///////////////////////////////////////////////////////////////////////////
-13/Afficher une liste de 12 pokemons (METHOD map()) via materialize
-14/
-15/
+13/map : Afficher une liste de 12 pokemons (METHOD map()) via materialize
+/////////////////////////////////////////////////////////////////////////
+14/PROPS : On va passer les 'props' decoupage de notre appli App => PokemonsList => PokemonCard (afficher le pokemon a propremment parlé !)
+15/Creation du dossier component du file pokemon-card
 16/
 17/
 18/
