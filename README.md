@@ -15,7 +15,8 @@ de l'application de la bonne manière (pas de mélange de fichiers qui ont des r
 Developpement plus avancé
 ///////////////////////////////////////////////////////////////////////////////////////////
 8/Utilisation du useState dans App.txs
-9/
-10/
+9/Creation d'un etat pr gerer le STATE (class tyscript pr modeliser un pokemon (pokemon.ts) & un fichier de donnée contenant qqs pokemons (mock-pokemon.ts) à injecter ds notre composant)
+10/On  def une variable state / init state / type state (affiche le nbre de pokemon present ds le state du component) et affiché, il y  a 12 pokémons
+11/
 
 
