@@ -6,5 +6,10 @@ Application de POKEMONS côté Front-end
 3/creation du tsconfig.json
 4/Installation-config de nodeJS (si jamais installé sur la machine)
 5/npm install : install de tte les dependances via le folder node_modules
+6/Creation du folder src et des files App.tsx & index.tsx
+7/creation du fichier index.html (pt d'entree pr notre appli) dans le dossier 'public'
+8/
+9/
+10/
 
 
