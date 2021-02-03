@@ -26,8 +26,8 @@ du composant / liste des pok load only one time
 13/map : Afficher une liste de 12 pokemons (METHOD map()) via materialize
 /////////////////////////////////////////////////////////////////////////
 14/PROPS : On va passer les 'props' decoupage de notre appli App => PokemonsList => PokemonCard (afficher le pokemon a propremment parlé !)
-15/Creation du dossier component du file pokemon-card
-16/
+15/Creation du dossier component du file pokemon-card 
+16/Creation du dossier pages du file pokemon-list 
 17/
 18/
 19/
