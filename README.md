@@ -29,7 +29,7 @@ du composant / liste des pok load only one time
 15/Creation du dossier component du file pokemon-card 
 16/Creation du dossier pages du file pokemon-list 
 17/Passage de props à pokemon-card
-18/application de css a pokemon card
+18/application de css a pokemon card (via les props egalement)
 19/
 20/
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import Pokemon from '../models/pokemon';
 import './pokemon-card.css';
 
@@ -8,10 +8,19 @@ type Props = { //On def un nouveau type pr typescript
   };
   
 const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688'}) => {
-    
+    const [color, setColor]= useState<string>(); //couleur crte ds le State 'color'
+        
+    const showBorder = () => {
+        setColor(borderColor); // valeur initial de la prop save ds borderColor
+    }
+  
+    const hideBorder = () => {
+      setColor('#f5f5f5'); // we put border in grey color
+  }
+  
     return (
-        <div className="col s6 m4">
-          <div className="card horizontal" style={{ borderColor:borderColor}}>
+        <div className="col s6 m4" onMouseEnter={showBorder} onMouseLeave={hideBorder}>
+          <div className="card horizontal" style={{ borderColor: color }}>
             <div className="card-image"> 
               <img src={pokemon.picture} alt={pokemon.name}/>
             </div>
