@@ -5,5 +5,6 @@ Application de POKEMONS côté Front-end
 2/creation du package.json
 3/creation du tsconfig.json
 4/Installation-config de nodeJS (si jamais installé sur la machine)
+5/npm install : install de tte les dependances via le folder node_modules
 
 
