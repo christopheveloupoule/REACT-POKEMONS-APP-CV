@@ -22,16 +22,26 @@ Init le state avc un [] / load la liste POKEMON (mock-pokemon.ts) à l'initialis
 du composant / liste des pok load only one time
 ///////////////////////////////////////////////////////////////////////////////
 12/ MATERIALIZE : On stylyse via 'MATERIALIZE' dans le index.html
-///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 13/map : Afficher une liste de 12 pokemons (METHOD map()) via materialize
-/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 14/PROPS : On va passer les 'props' decoupage de notre appli App => PokemonsList => PokemonCard (afficher le pokemon a propremment parlé !)
 15/Creation du dossier component du file pokemon-card 
 16/Creation du dossier pages du file pokemon-list 
 17/Passage de props à pokemon-card
 18/application de css a pokemon card (via les props egalement)
-19/
-20/
+19/Affichage dynamique de la borderColor d'une card pokemon dans la liste
+//////////////////////////////////////////////////////////////////////////////
+20/Hooks personnalisés (ex affichage de date...)
+21/
+22/
+23/
+24/
+25/
+26/
+27/
+28/
+29/
 
 
 

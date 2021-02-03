@@ -17,6 +17,10 @@ const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688'
     const hideBorder = () => {
       setColor('#f5f5f5'); // we put border in grey color
   }
+
+  const formatDate = (date: Date= new Date()): string => { //on ajoute une date par def avc "new Date" comme fct°
+    return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
+  }
   
     return (
         <div className="col s6 m4" onMouseEnter={showBorder} onMouseLeave={hideBorder}>
@@ -27,6 +31,7 @@ const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688'
             <div className="card-stacked">
               <div className="card-content">
                 <p>{pokemon.name}</p>
+                <p><small>{formatDate(pokemon.created)}</small></p>
                 <p><small>{pokemon.created.toString()}</small></p>
               </div>
             </div>
