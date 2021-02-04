@@ -32,18 +32,33 @@ du composant / liste des pok load only one time
 18/application de css a pokemon card (via les props egalement)
 19/Affichage dynamique de la borderColor d'une card pokemon dans la liste
 //////////////////////////////////////////////////////////////////////////////
+HOOKS PERSONNALISES
+/////////////////////////////////////////////////////////////////////////////
 20/Hooks personnalisés (ex affichage de date...)
 21/Rajout des methodes formatDate & formatType puis export
 //////////////////////////////////////////////////////////////////////////////
+NAVIGATION
+/////////////////////////////////////////////////////////////////////////////
 22/Navigation via react router dom
 23/La navigation le fichier App.tsx
 24/useHistory pour la redirecetion vers la page d'un pokemon (et non un link pour vr une seconde méthode)
 25/Gerer ls erreurs 404 si un user n'arriverait pas à accéder à une page de nav...
 (pages/page-not-found.tsx et App.tsx pr intercepter tts les routes non trouvés (mauvais url...))
-26/
-27/
-28/
-29/
+///////////////////////////////////////////////////////////////////////////////
+FORMULAIRES (composant controlé(gerer ds le state pr un composant REACT) ou nn controlé(gerer ds le DOM))
+Formulaire d'edition avc les propietes d'un pok (name/hp/cp/types)
+url :/pokemons/edit/7 | puis le composant controlé pr implémenter le "formulaire" en tant que tel
+//////////////////////////////////////////////////////////////////////////////
+26/components/pokemon-form.tsx page du formulaire statique
+27/Puis on va l'intégrer à un autre composant pokemon-edit.tsx
+28/Ajout d'une nvelle route dans le App.tsx
+29/Modifie du file pokemon-detail (via un bouton 'crayon' et donc d'eviter de taper l'url)
+30/
+31/
+32/
+33/
+34/
+35/
 
 
 
