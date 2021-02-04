@@ -33,8 +33,9 @@ du composant / liste des pok load only one time
 19/Affichage dynamique de la borderColor d'une card pokemon dans la liste
 //////////////////////////////////////////////////////////////////////////////
 20/Hooks personnalisés (ex affichage de date...)
-21/Rajout des methodes formatDate & formatType
-22/
+21/Rajout des methodes formatDate & formatType puis export
+//////////////////////////////////////////////////////////////////////////////
+22/Navigation via react router dom
 23/
 24/
 25/
