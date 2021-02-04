@@ -2,7 +2,8 @@ import React, { FunctionComponent, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import PokemonForm from '../components/pokemon-form';
 import Pokemon from '../models/pokemon';
-import POKEMONS from '../models/mock-pokemon';
+//import POKEMONS from '../models/mock-pokemon';
+import PokemonService from '../services/pokemon-service';
 
  
 type Params = { id: string };
@@ -21,11 +22,20 @@ const PokemonEdit: FunctionComponent<RouteComponentProps<Params>> = ({ match }) 
       } //si ok on place le pokemon ds le STATE de notre composant sinn on ne fait rien dc {}vide
     })*/
     //on recupe des pokemons depuis notre APIREST et on les place dans le STATE de notre composant
-    fetch(`http://localhost:3001/pokemons/${match.params.id }`) //requete de type GET en lui passant une URL
+    
+    /*fetch(`http://localhost:3001/pokemons/${match.params.id }`) //requete de type GET en lui passant une URL
     .then(response => response.json()) //on recupe un {}response de la part de notre méthode FETCH & methode json sur cet reponse pr extraire les datas
     .then(pokemon => { //MAJ du pokemon ds ns composants
       if(pokemon.id) setPokemon(pokemon); //Verification si le user request un pokemon avec un id qui existe, 
-    }) //si ok on place le pokemon ds le STATE de notre composant sinn renvoi un {} vide
+    }) //si ok on place le pokemon ds le STATE de notre composant sinn renvoi un {} vide*/
+
+    PokemonService.getPokemon(+match.params.id).then(pokemon => setPokemon(pokemon));
+
+    /* +: astuce de syntaxe de TP qui permet de convertir une string en un nbre,le routeur 
+  de React ns transmet l'ID d'un pokemon ss forme de string & la method getPokemon 
+  de notre service attend un nbre en paramètre
+  Method getPokemon de notre service pr recupèrer un Pokemon unique
+   */
   }, [match.params.id]);
     
   return (

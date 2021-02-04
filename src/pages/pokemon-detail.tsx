@@ -1,9 +1,10 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
 import Pokemon from '../models/pokemon'; //representat° model for 'type' our variables
-import POKEMONS from '../models/mock-pokemon'; //Add cst 'Pokemon' contains data of 'Pokemon'
+//import POKEMONS from '../models/mock-pokemon'; //Add cst 'Pokemon' contains data of 'Pokemon'
 import formatDate from '../helpers/format-date';
 import formatType from '../helpers/format-type';
+import PokemonService from '../services/pokemon-service';
 
 /*On def un type nommé params pr recup l'ID que ns allons 
 recup depuis l'URL, cet id est envoyé sous la forme d'une 
@@ -32,11 +33,20 @@ si aucun pokemon trouver de cette façon alors pokemon = 0*/
         setPokemon(pokemon);
       }
     })*/
-    fetch(`http://localhost:3001/pokemons/${match.params.id }`) //requete de type GET en lui passant une URL
+    
+    /*fetch(`http://localhost:3001/pokemons/${match.params.id }`) //requete de type GET en lui passant une URL
     .then(response => response.json()) //on recupe un {}response de la part de notre méthode FETCH & methode json sur cet reponse pr extraire les datas
     .then(pokemon => { //MAJ du pokemon ds ns composants
       if(pokemon.id) setPokemon(pokemon); //Verification si le user request un pokemon avec un id qui existe, 
-    }) //si ok on place le pokemon ds le STATE de notre composant sinn renvoi un {} vide
+    }) //si ok on place le pokemon ds le STATE de notre composant sinn renvoi un {} vide*/
+
+    PokemonService.getPokemon(+match.params.id).then(pokemon => setPokemon(pokemon));
+  /* +: astuce de syntaxe de TP qui permet de convertir une string en un nbre,le routeur 
+  de React ns transmet l'ID d'un pokemon ss forme de string & la method getPokemon 
+  de notre service attend un nbre en paramètre
+  Method getPokemon de notre service pr recupèrer un Pokemon unique
+   */
+
   }, [match.params.id]);
     
   return (
