@@ -64,7 +64,10 @@ handleInputChange | onChange dans le return
 36/Gerer la soumission du form (handleSubmit)
 37/Ajouter des regles de validation lors de la saisie du user sur ls différents field du pokemon
 (validateForm et isTypesValid)
-38/Prevenir le user en cas d'erreur par message d'err...
+38/Prevenir le user en cas d'erreur par message d'err...(poursuivre sur un serveur distant pr que ns donné soit pris en compte)
+****************************************************************************
+Requete HTTP
+****************************************************************************
 39/
 40/
 41/
