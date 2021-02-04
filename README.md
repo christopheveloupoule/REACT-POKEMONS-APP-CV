@@ -66,13 +66,20 @@ handleInputChange | onChange dans le return
 (validateForm et isTypesValid)
 38/Prevenir le user en cas d'erreur par message d'err...(poursuivre sur un serveur distant pr que ns donné soit pris en compte)
 ****************************************************************************
-Requete HTTP
+Requete HTTP npm install -g json-server (simule l'api REST)
 ****************************************************************************
-39/
-40/
+39/Simuler une API REST (jusqu'a maintenant on exporte nos donnée via le file mock-pokemon)
+on va utiliser une petite librairie 'JSON SERVER' qui ns permet de simuler une APIREST qui 
+fonctionnera comme si ns utilisions un serveur distant
+npm install -g json-server
+40/On crée une mini db 'db.json' dans le folder models , les modifs seront save ds ce fichier!
 41/
 42/
 43/
+44/
+45/
+46/
+47/
 
 
 
