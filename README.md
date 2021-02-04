@@ -85,8 +85,11 @@ On execute la cde npm run start:api
 On va dc recupérer les Pokemons affiché ds notre appli depuis un SERVER distant plutot que depuis une simple cst (mock-pockemon.ts)
 Fetch API, sorte de spécicat° supporté pr ls navigateurs & JS...METHOD global FETCh(renvoie une promess qui facilite ls traitemnts async) envoie de requete de maniere Async
 METHOD FETCH sur ls files pokemon-list / pokemon-detail / pokemon-edit pr recupe ls datas depuis l'api rest
-44/
-45/
+44/Facto ns req ds un service: meme req dans pokemon-detail / pokemon-edit
+service/pokemon-service.ts
+45/service/pokemon-service.ts : on a facto ns 2 req (getPokemons et utilisation fetch METHOD)
+On utilise static puis il faudra brancher nos composants précedent 
+pokemon-list / pokemon-detail / pokemon-edit sr ce pokemon-service.ts 
 46/
 47/
 
