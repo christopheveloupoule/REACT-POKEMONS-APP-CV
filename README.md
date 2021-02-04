@@ -98,10 +98,19 @@ Pr info, chaque req http, contien une 'method,un body,un headers'
 49/Save les modif du user & update method
 50/Delete method service/pokemon-service.ts puis MAJ interface de pokemon-form.tsx
 51/Ajouter un pokemon POST: Ajouter une METHOD POST (creer une METHODE sr l'API REST pokemon-service.tsx)/ Creer une page pr l'ajout d'un pokemon (pokemon-form + route du pok App.tsx)/ Ajouter un lien vrs cette page (pokemon-list.tsx) / distinguer le cas d'ajout et edition (pokemon-edit.tsx)/adapter le formulaire d'édition (capable de traiter le cas d'ajout et edition d'un pok) pokemon-form.tsx
-52/
-53/
-54/
-55/
+52/Conclusion on peut meme developper des requetes avant d'avoir un server
+**************************************************************************
+Autocompletion
+**************************************************************************
+53/Creation de nvelle METHOD search POKEMON dans pokemon-service.ts
+54/Mise en place du composant de recherche pokemon-search.tsx
+55/Affichage de notre champ de recherche, on rajoute le pokemon-search ds le template pokemon-list
+56/On souhaite rajouter une icone de chargement (circulaire via materialize), rajout de delay=500" das le package.json/on crée le loader et on l'importe dans pokemon-detail.tsx également dans le pokemon-edit.tsx
+57/
+58/
+59/
+60/
+
 
 
 

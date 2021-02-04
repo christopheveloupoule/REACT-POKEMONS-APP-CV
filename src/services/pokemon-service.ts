@@ -36,7 +36,7 @@ Preciser quelle genre de data send to API RESt, elle aura du JSON*/
 
 //Effacer un pok
   static deletePokemon(pokemon: Pokemon): Promise<{}> { //retourne un obj vide
-    return fetch(`http://localhost:3003/pokemons/${pokemon.id}`,{
+    return fetch(`http://localhost:3001/pokemons/${pokemon.id}`,{
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json'}
     })
@@ -48,7 +48,7 @@ Preciser quelle genre de data send to API RESt, elle aura du JSON*/
   static addPokemon(pokemon: Pokemon): Promise<Pokemon> {
     delete pokemon.created; //suppr la propr d'un pok
 
-    return fetch(`http://localhost:3003/pokemons`, {
+    return fetch(`http://localhost:3001/pokemons`, {
       method: 'POST',
       body: JSON.stringify(pokemon),
       headers: { 'Content-Type': 'application/json'}
@@ -56,7 +56,15 @@ Preciser quelle genre de data send to API RESt, elle aura du JSON*/
     .then(response => response.json())
     .catch(error => this.handleError(error));
     }
- 
+  
+  //Method search
+  static searchPokemon(term: string): Promise<Pokemon[]> { //retourne une promess qui renvoi un arr de Pokemon
+    return fetch(`http://localhost:3001/pokemons?q=${term}`) //Method Fetch, utilisat° d'une url special qui permet de filter ls Pokemons
+    //d'apres lr nom en fct d'un terme de recherche entré pr le user
+    .then(response => response.json())
+    .catch(error => this.handleError(error));
+  }
+
   static isEmpty(data: Object): boolean {
     return Object.keys(data).length === 0;
   }

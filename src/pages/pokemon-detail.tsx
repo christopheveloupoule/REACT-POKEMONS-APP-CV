@@ -5,6 +5,7 @@ import Pokemon from '../models/pokemon'; //representat° model for 'type' our va
 import formatDate from '../helpers/format-date';
 import formatType from '../helpers/format-type';
 import PokemonService from '../services/pokemon-service';
+import Loader from '../components/loader';
 
 /*On def un type nommé params pr recup l'ID que ns allons 
 recup depuis l'URL, cet id est envoyé sous la forme d'une 
@@ -100,7 +101,7 @@ si aucun pokemon trouver de cette façon alors pokemon = 0*/
           </div>
         </div>
       ) : ( //sinon aucun pokemon a afficher
-        <h4 className="center">Aucun pokémon à afficher!</h4>
+        <h4 className="center"><Loader/>{/*Aucun pokémon à afficher!*/}</h4>
       )}
     </div>
   );

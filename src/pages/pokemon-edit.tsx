@@ -4,7 +4,7 @@ import PokemonForm from '../components/pokemon-form';
 import Pokemon from '../models/pokemon';
 //import POKEMONS from '../models/mock-pokemon';
 import PokemonService from '../services/pokemon-service';
-
+import Loader from '../components/loader';
  
 type Params = { id: string };
 /*ns declarons un "type" pr une "propriete" nommer id qui correspond
@@ -48,7 +48,7 @@ const PokemonEdit: FunctionComponent<RouteComponentProps<Params>> = ({ match }) 
             {/*on def une 'prop' pokemon pr passer au formulaire l'objet pokemon à editer*/}
         </div>
       ) : (
-        <h4 className="center">Aucun pokémon à afficher !</h4>
+        <h4 className="center"><Loader/>{/*Aucun pokémon à afficher!*/}</h4>
       )}
     </div>
   );
