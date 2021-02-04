@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Pokemon from '../models/pokemon';
 import formatType from '../helpers/format-type';
   
@@ -33,6 +34,8 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon}) => {
     cp: { value: pokemon.cp, isValid: true },
     types: { value: pokemon.types, isValid: true }
   });
+
+  const history = useHistory();
   
   const types: string[] = [ //contain all free pokemon to display in a form
     'Plante', 'Feu', 'Eau', 'Insecte', 'Normal', 'Electrik',
@@ -78,10 +81,20 @@ lors de l'interaction avec un type de pokemon*/
 
       setForm({...form, ...{ types: newField }}); //Maj du STATE de notre form via le sread operator
     }
+
+  //Mehod 'handleSubmit' chargé de gerer le comportement de la soumission du formulaire
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); //bloquement natif afin de traiter ns meme la soumission du formulaire 
+    console.log(form); //affiche les données dans le state du formulaire ds la console du navigateur
+    history.push(`/pokemons/${pokemon.id}`); 
+    //Enfin on redirige le user vers la page de detail d'un pokemon*/  
+    /*history.push(`/pokemons/${pokemon.id}`);*/
+    }
+
         
 
   return ( //Utilisation de materialize (classeName)
-    <form>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <div className="row">
         <div className="col s12 m8 offset-m2">
           <div className="card hoverable"> 

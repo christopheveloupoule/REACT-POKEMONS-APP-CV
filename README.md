@@ -61,6 +61,7 @@ champs avec les donnees du pokemon concerné puis pousser ces diff valeur ds le 
 34/Modife de l'etat du form en fct de l'interact° user (on a relié le state au form, maintenant on doit relier le form au state des lors de modife de champs name/hp/cp/types)
 handleInputChange | onChange dans le return
 35/selectType if/else spread operator...
+36/Gerer la soumission du form (handleSubmit)
 
 
 
