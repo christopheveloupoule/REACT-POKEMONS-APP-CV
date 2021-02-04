@@ -62,6 +62,15 @@ champs avec les donnees du pokemon concerné puis pousser ces diff valeur ds le 
 handleInputChange | onChange dans le return
 35/selectType if/else spread operator...
 36/Gerer la soumission du form (handleSubmit)
+37/Ajouter des regles de validation lors de la saisie du user sur ls différents field du pokemon
+(validateForm et isTypesValid)
+38/Prevenir le user en cas d'erreur par message d'err...
+39/
+40/
+41/
+42/
+43/
+
 
 
 

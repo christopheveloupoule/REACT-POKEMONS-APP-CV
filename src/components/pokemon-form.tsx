@@ -85,13 +85,72 @@ lors de l'interaction avec un type de pokemon*/
   //Mehod 'handleSubmit' chargé de gerer le comportement de la soumission du formulaire
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); //bloquement natif afin de traiter ns meme la soumission du formulaire 
-    console.log(form); //affiche les données dans le state du formulaire ds la console du navigateur
-    history.push(`/pokemons/${pokemon.id}`); 
+    //console.log(form); //affiche les données dans le state du formulaire ds la console du navigateur
+    const isFormValid = validateForm(); //On recup le resultat de la validation de nos champs
+    if(isFormValid) { //redirection vers la page de detail d'un "pokemon" ssi le formulaire est valide
+      history.push(`/pokemons/${pokemon.id}`); 
     //Enfin on redirige le user vers la page de detail d'un pokemon*/  
     /*history.push(`/pokemons/${pokemon.id}`);*/
     }
+  }
 
-        
+  //On cree cette method dt le role verifie sera de vérifier que chaque champs respecte les regles que ns avons etabli
+  const validateForm = () => {
+    let newForm: Form = form;
+
+      // Validator name (express reg qui n'accepte que ds strings maj ou min entre 3 et 25 caracteres)
+      if(!/^[a-zA-Zàéè ]{3,25}$/.test(form.name.value)) { //la méthode "test" pr tester la validité d'un champ
+      const errorMsg: string = 'Le nom du pokémon est requis (1-25).';
+      const newField: Field = { value: form.name.value, error: errorMsg, isValid: false };
+      newForm = { ...newForm, ...{ name: newField } };
+    } else {
+      const newField: Field = { value: form.name.value, error: '', isValid: true };
+      newForm = { ...newForm, ...{ name: newField } };
+    }
+
+    // Validator hp (que des chiffres en 1 et 3 de long)
+    if(!/^[0-9]{1,3}$/.test(form.hp.value)) {
+      const errorMsg: string = 'Les points de vie du pokémon sont compris entre 0 et 999.';
+      const newField: Field = {value: form.hp.value, error: errorMsg, isValid: false};
+      newForm = { ...newForm, ...{ hp: newField } };
+    } else {
+      const newField: Field = { value: form.hp.value, error: '', isValid: true };
+      newForm = { ...newForm, ...{ hp: newField } };
+    }
+
+    // Validator cp (que des chiffres en 1 et 2 de long)
+    if(!/^[0-9]{1,2}$/.test(form.cp.value)) {
+      const errorMsg: string = 'Les dégâts du pokémon sont compris entre 0 et 99';
+      const newField: Field = {value: form.cp.value, error: errorMsg, isValid: false};
+      newForm = { ...newForm, ...{ cp: newField } };
+    } else {
+      const newField: Field = { value: form.cp.value, error: '', isValid: true };
+      newForm = { ...newForm, ...{ cp: newField } };
+    }
+  //une fois le STATE à jour, on regarde si le nouveau formulaire est valide ou non
+    setForm(newForm);
+    return newForm.name.isValid && newForm.hp.isValid && newForm.cp.isValid;
+  }
+
+   //La methode s'occupe de renvoyer un booléen à savoir si une case est vide ou non
+  //Method 'hasType'  pr verifier que ns ne verrouillons pas ds cases que le user a deja cocher, cela lui permettra de "deselectionner"
+  const isTypesValid = (type: string): boolean => {
+    // Cas n°1: Le pokémon a un seul type, qui correspond au type passé en paramètre.
+    // Dans ce cas on revoie false, car l'utilisateur ne doit pas pouvoir décoché ce type (sinon le pokémon aurait 0 type, ce qui est interdit)
+    if (form.types.value.length === 1 && hasType(type)) {
+      return false;
+    }
+    
+    // Cas n°2: Le pokémon a au moins 3 types.
+    // Dans ce cas il faut empêcher à l'utilisateur de cocher un nouveau type, mais pas de décocher les types existants.
+    if (form.types.value.length >= 3 && !hasType(type)) { 
+      return false; 
+    } 
+    
+    // Après avoir passé les deux tests ci-dessus, on renvoie 'true', 
+    // c'est-à-dire que l'on autorise l'utilisateur à cocher ou décocher un nouveau type.
+    return true;
+  }
 
   return ( //Utilisation de materialize (classeName)
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -107,16 +166,31 @@ lors de l'interaction avec un type de pokemon*/
                 <div className="form-group">
                   <label htmlFor="name">Nom</label>
                   <input id="name" name="name" type="text" className="form-control" value={form.name.value} onChange={e => handleInputChange(e)}></input>
+                  {form.name.error &&
+                  <div className="card-panel red accent-1"> 
+                   {form.name.error}
+                  </div>
+                  }
                 </div>
                 {/* Pokemon hp */}
                 <div className="form-group">
                   <label htmlFor="hp">Point de vie</label>
                   <input id="hp" name="hp" type="number" className="form-control" value={form.hp.value} onChange={e => handleInputChange(e)}></input>
+                  {form.hp.error &&
+                  <div className="card-panel red accent-1"> 
+                   {form.hp.error}
+                  </div>
+                  }
                 </div>
                 {/* Pokemon cp */}
                 <div className="form-group">
                   <label htmlFor="cp">Dégâts</label>
                   <input id="cp" name="cp" type="number" className="form-control" value={form.cp.value} onChange={e => handleInputChange(e)}></input>
+                  {form.cp.error &&
+                  <div className="card-panel red accent-1"> 
+                   {form.cp.error}
+                  </div>
+                  }
                 </div>
                 {/* Pokemon types */}
                 <div className="form-group">
@@ -124,7 +198,7 @@ lors de l'interaction avec un type de pokemon*/
                   {types.map(type => (
                     <div key={type} style={{marginBottom: '10px'}}>
                       <label>
-                        <input id={type} type="checkbox" className="filled-in" value={type} checked={hasType(type)} onChange={e => selectType(type, e)}></input>
+                        <input id={type} type="checkbox" className="filled-in" value={type} disabled={!isTypesValid(type)} checked={hasType(type)} onChange={e => selectType(type, e)}></input>
 {/*On itère sr ls types de pokémon afin d'afficher une list de case à cocher, chacune associer avec un type précis
 *Ajout de l'attribut "checked" et "value" pr determiner la valeur associer à chaque case à cocher cad le type de pokemon 
 onChange={e => selectType(type, e)} : selectType, on passe 2param, le type avec lequel le user interagit et le 2nd param (e) si le user a coché/décoché*/}
