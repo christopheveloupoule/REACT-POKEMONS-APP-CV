@@ -14,11 +14,18 @@ const PokemonEdit: FunctionComponent<RouteComponentProps<Params>> = ({ match }) 
  
   /*Ns chargeons le bon pokemon ds notre STATE, celui l' id passé depuis l'URL*/
   useEffect(() => {
+    /*Realatif a la cst POKEMONS (mock-pokemon.ts)
     POKEMONS.forEach(pokemon => {
       if (match.params.id === pokemon.id.toString()) {
         setPokemon(pokemon); //Verification si le user request un pokemon avec un id qui existe,
       } //si ok on place le pokemon ds le STATE de notre composant sinn on ne fait rien dc {}vide
-    })
+    })*/
+    //on recupe des pokemons depuis notre APIREST et on les place dans le STATE de notre composant
+    fetch(`http://localhost:3001/pokemons/${match.params.id }`) //requete de type GET en lui passant une URL
+    .then(response => response.json()) //on recupe un {}response de la part de notre méthode FETCH & methode json sur cet reponse pr extraire les datas
+    .then(pokemon => { //MAJ du pokemon ds ns composants
+      if(pokemon.id) setPokemon(pokemon); //Verification si le user request un pokemon avec un id qui existe, 
+    }) //si ok on place le pokemon ds le STATE de notre composant sinn renvoi un {} vide
   }, [match.params.id]);
     
   return (

@@ -27,11 +27,16 @@ au state du composant via la méthode setPokemon,
 si aucun pokemon trouver de cette façon alors pokemon = 0*/
 
   useEffect(() => {
-    POKEMONS.forEach(pokemon => {
+    /*POKEMONS.forEach(pokemon => {
       if (match.params.id === pokemon.id.toString()) {
         setPokemon(pokemon);
       }
-    })
+    })*/
+    fetch(`http://localhost:3001/pokemons/${match.params.id }`) //requete de type GET en lui passant une URL
+    .then(response => response.json()) //on recupe un {}response de la part de notre méthode FETCH & methode json sur cet reponse pr extraire les datas
+    .then(pokemon => { //MAJ du pokemon ds ns composants
+      if(pokemon.id) setPokemon(pokemon); //Verification si le user request un pokemon avec un id qui existe, 
+    }) //si ok on place le pokemon ds le STATE de notre composant sinn renvoi un {} vide
   }, [match.params.id]);
     
   return (

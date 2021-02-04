@@ -84,6 +84,7 @@ On execute la cde npm run start:api
 43/Consommer l'API REST sur notre machine local, maintenant il ns faut utiliser ts cela depuis notre appli
 On va dc recupérer les Pokemons affiché ds notre appli depuis un SERVER distant plutot que depuis une simple cst (mock-pockemon.ts)
 Fetch API, sorte de spécicat° supporté pr ls navigateurs & JS...METHOD global FETCh(renvoie une promess qui facilite ls traitemnts async) envoie de requete de maniere Async
+METHOD FETCH sur ls files pokemon-list / pokemon-detail / pokemon-edit pr recupe ls datas depuis l'api rest
 44/
 45/
 46/
