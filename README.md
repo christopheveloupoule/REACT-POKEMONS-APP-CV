@@ -73,6 +73,8 @@ on va utiliser une petite librairie 'JSON SERVER' qui ns permet de simuler une A
 fonctionnera comme si ns utilisions un serveur distant
 npm install -g json-server
 40/On crée une mini db 'db.json' dans le folder models , les modifs seront save ds ce fichier!
+API pas encore prete, il faut encore la demarrer pour à court terme ne plus utiliser le mock-pockemon.ts
+On modifie le fichier format-date.ts , on lui passe new Date car le fichier db.JSON est statique
 41/
 42/
 43/
