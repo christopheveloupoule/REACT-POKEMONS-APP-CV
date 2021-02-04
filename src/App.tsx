@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import PageNotFound from './pages/page-not-found';
 import PokemonEdit from './pages/pokemon-edit';
 import PokemonAdd from './pages/pokemon-add';
+import Login from './pages/login';
+import PrivateRoute from './PrivateRoute';
   
 const App: FunctionComponent = () => {/*{ //def a state
  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -29,12 +31,13 @@ useEffect(() => { //life cycle
         </nav>
           {/*Le syst de gest° ds routes de notre appli*/}
         <Switch>
-          <Route exact path="/" component={PokemonList} />
-          <Route exact path="/pokemons" component={PokemonList} />
-          <Route exact path="/pokemons/add" component={PokemonAdd} />
-          <Route exact path="/pokemons/edit/:id" component={PokemonEdit} /> {/*Contient notre formulaire d'edition*/}
-          <Route path="/pokemons/:id" component={PokemonsDetail} />
-          <Route component={PageNotFound} /> {/*attention à l'ordre de declaration ds routes*/} 
+          <PrivateRoute exact path="/" component={PokemonList} />
+          <Route exact path="/login" component={Login}/> {/*Non proteger cr accessible à tlm*/}
+          <PrivateRoute exact path="/pokemons" component={PokemonList} />
+          <PrivateRoute exact path="/pokemons/add" component={PokemonAdd} />
+          <PrivateRoute exact path="/pokemons/edit/:id" component={PokemonEdit} /> {/*Contient notre formulaire d'edition*/}
+          <PrivateRoute path="/pokemons/:id" component={PokemonsDetail} />
+          <PrivateRoute component={PageNotFound} /> {/*attention à l'ordre de declaration ds routes*/} 
         </Switch>
       </div>
     </Router>

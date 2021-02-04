@@ -106,9 +106,12 @@ Autocompletion
 54/Mise en place du composant de recherche pokemon-search.tsx
 55/Affichage de notre champ de recherche, on rajoute le pokemon-search ds le template pokemon-list
 56/On souhaite rajouter une icone de chargement (circulaire via materialize), rajout de delay=500" das le package.json/on crée le loader et on l'importe dans pokemon-detail.tsx également dans le pokemon-edit.tsx
-57/
-58/
-59/
+**************************************************************************
+Authentification
+*************************************************************************
+57/Mise en place de l'authentification (authentication-service.ts)
+58/Ajout de la page de connexion pour se logguer pages/login.tsx et import dans App.tsx
+59/Proteger l'acces aux routes (PrivateRoute.tsx) et import ds App.tx
 60/
 
 
