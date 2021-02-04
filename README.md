@@ -97,7 +97,7 @@ qui est une methode ds promess retourner par fetch
 Pr info, chaque req http, contien une 'method,un body,un headers'
 49/Save les modif du user & update method
 50/Delete method service/pokemon-service.ts puis MAJ interface de pokemon-form.tsx
-51/
+51/Ajouter un pokemon POST: Ajouter une METHOD POST (creer une METHODE sr l'API REST pokemon-service.tsx)/ Creer une page pr l'ajout d'un pokemon (pokemon-form + route du pok App.tsx)/ Ajouter un lien vrs cette page (pokemon-list.tsx) / distinguer le cas d'ajout et edition (pokemon-edit.tsx)/adapter le formulaire d'édition (capable de traiter le cas d'ajout et edition d'un pok) pokemon-form.tsx
 52/
 53/
 54/

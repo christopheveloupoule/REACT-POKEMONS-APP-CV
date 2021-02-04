@@ -6,6 +6,7 @@ import PokemonsDetail from './pages/pokemon-detail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import PageNotFound from './pages/page-not-found';
 import PokemonEdit from './pages/pokemon-edit';
+import PokemonAdd from './pages/pokemon-add';
   
 const App: FunctionComponent = () => {/*{ //def a state
  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -30,6 +31,7 @@ useEffect(() => { //life cycle
         <Switch>
           <Route exact path="/" component={PokemonList} />
           <Route exact path="/pokemons" component={PokemonList} />
+          <Route exact path="/pokemons/add" component={PokemonAdd} />
           <Route exact path="/pokemons/edit/:id" component={PokemonEdit} /> {/*Contient notre formulaire d'edition*/}
           <Route path="/pokemons/:id" component={PokemonsDetail} />
           <Route component={PageNotFound} /> {/*attention à l'ordre de declaration ds routes*/} 

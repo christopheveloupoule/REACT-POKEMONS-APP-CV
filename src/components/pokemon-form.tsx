@@ -5,7 +5,8 @@ import formatType from '../helpers/format-type';
 import PokemonService from '../services/pokemon-service';
   
 type Props = {
-  pokemon: Pokemon
+  pokemon: Pokemon,
+  isEditForm: boolean
 };
 
 //Declarer 2 nveaux types pr mieux modéliser ns formulaire:
@@ -18,6 +19,7 @@ type Field = { //modelise un champ ds notre form
 
 //formulaire à propremnt parler via les champs dispos
 type Form = {
+  picture: Field,
   name: Field,
   hp: Field,
   cp: Field,
@@ -27,9 +29,10 @@ type Form = {
 //Combinaison de ces 2 types permettra de structurer le state utiliser pr notre 'form' d'edition
 //on cree un state pour modeliser les données qui vt etre gerer pr le form d'edition
   
-const PokemonForm: FunctionComponent<Props> = ({pokemon}) => {
+const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
 
   const [form, setForm] = useState<Form>({ //données uniquemnt present ds le state
+    picture: { value: pokemon.picture },
     name: { value: pokemon.name, isValid: true },
     hp: { value: pokemon.hp, isValid: true },
     cp: { value: pokemon.cp, isValid: true },
@@ -83,25 +86,32 @@ lors de l'interaction avec un type de pokemon*/
       setForm({...form, ...{ types: newField }}); //Maj du STATE de notre form via le sread operator
     }
 
-  //Mehod 'handleSubmit' chargé de gerer le comportement de la soumission du formulaire
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); //bloquement natif afin de traiter ns meme la soumission du formulaire 
-    //console.log(form); //affiche les données dans le state du formulaire ds la console du navigateur
-    const isFormValid = validateForm(); //On recup le resultat de la validation de nos champs
-    if(isFormValid) { //redirection vers la page de detail d'un "pokemon" ssi le formulaire est valide
-      pokemon.name = form.name.value;
-      pokemon.hp = form.hp.value;
-      pokemon.cp = form.cp.value;
-      pokemon.types = form.types.value;
-      PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`)); 
-    //Enfin on redirige le user vers la page de detail d'un pokemon*/  
-    /*history.push(`/pokemons/${pokemon.id}`);*/
-    }
+  const isAddForm = () => {
+    return !isEditForm;
   }
 
   //On cree cette method dt le role verifie sera de vérifier que chaque champs respecte les regles que ns avons etabli
   const validateForm = () => {
     let newForm: Form = form;
+
+    //Validator url
+
+    if(isAddForm()) { //regle de validation 
+      const start = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/"; //
+      const end = ".png"; //url saisit par le user se termine par png
+
+      //ES6, utilise les method startWith EndWith 
+      //permet de tester qu'un caractere commence pr 1certain prefix & se termine pr un certain suffix
+      if(!form.picture.value.startsWith(start) || !form.picture.value.endsWith(end)) {
+        const errorMsg: string = 'L\'url n\'est pas valide.';
+        const newField: Field = { value: form.picture.value, error: errorMsg, isValid: false };
+        newForm = { ...newForm, ...{ picture: newField } };
+      } else {
+        const newField: Field = { value: form.picture.value, error: '', isValid: true };
+        newForm = { ...newForm, ...{ picture: newField } };
+      }
+
+    }
 
       // Validator name (express reg qui n'accepte que ds strings maj ou min entre 3 et 25 caracteres)
       if(!/^[a-zA-Zàéè ]{3,25}$/.test(form.name.value)) { //la méthode "test" pr tester la validité d'un champ
@@ -157,6 +167,33 @@ lors de l'interaction avec un type de pokemon*/
     return true;
   }
 
+  //Mehod 'handleSubmit' chargé de gerer le comportement de la soumission du formulaire
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); //bloquement natif afin de traiter ns meme la soumission du formulaire 
+    //console.log(form); //affiche les données dans le state du formulaire ds la console du navigateur
+    const isFormValid = validateForm(); //On recup le resultat de la validation de nos champs
+    if(isFormValid) { //redirection vers la page de detail d'un "pokemon" ssi le formulaire est valide
+      pokemon.picture = form.picture.value;
+      pokemon.name = form.name.value;
+      pokemon.hp = form.hp.value;
+      pokemon.cp = form.cp.value;
+      pokemon.types = form.types.value;
+      
+      isEditForm ? updatePokemon() : addPokemon(); //edition ou ajout d'un nvx pokemon
+    
+      //Enfin on redirige le user vers la page de detail d'un pokemon*/  
+    /*history.push(`/pokemons/${pokemon.id}`);*/
+    }
+  }
+
+  const addPokemon = () => {
+    PokemonService.addPokemon(pokemon).then(() => history.push(`/pokemons`));
+  }
+  
+  const updatePokemon = () => {
+    PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`));
+  }
+
   //On implémente une method DeletePokemon
   const deletePokemon = () => {
     PokemonService.deletePokemon(pokemon).then(() => history.push(`/pokemons`));
@@ -166,15 +203,30 @@ lors de l'interaction avec un type de pokemon*/
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="row">
         <div className="col s12 m8 offset-m2">
-          <div className="card hoverable"> 
+          <div className="card hoverable">
+            {isEditForm && ( 
             <div className="card-image">
               <img src={pokemon.picture} alt={pokemon.name} style={{width: '250px', margin: '0 auto'}}/>
               <span className="btn-floating halfway-fab waves-effect waves-light">
                 <i onClick={deletePokemon} className="material-icons">delete</i>
               </span>{/*Suppress° du pokemon depuis l'APIREST*/}
             </div>
+            )}
             <div className="card-stacked">
               <div className="card-content">
+                {/* Pokemon picture */}
+                {isAddForm() && (
+                <div className="form-group"> 
+                  <label htmlFor="name">Image</label>
+                  <input id="picture" name="picture" type="text" className="form-control" value={form.picture.value} onChange={e => handleInputChange(e)}></input>
+                  {/*Parfait echange entre value&onChange(state et formulaire)*/}
+                  {/* error */}
+                  {form.picture.error &&
+                  <div className="card-panel red accent-1"> 
+                   {form.picture.error} 
+                  </div>} 
+                </div>
+                )}
                 {/* Pokemon name */}
                 <div className="form-group">
                   <label htmlFor="name">Nom</label>

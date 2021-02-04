@@ -44,7 +44,7 @@ const PokemonEdit: FunctionComponent<RouteComponentProps<Params>> = ({ match }) 
         <div className="row">
             {/*Integre de 2élements, le titre puis le formulaire d'edit°,pokemon-form*/}
             <h2 className="header center">Éditer { pokemon.name }</h2>
-            <PokemonForm pokemon={pokemon}></PokemonForm>
+            <PokemonForm pokemon={pokemon} isEditForm={true}></PokemonForm>
             {/*on def une 'prop' pokemon pr passer au formulaire l'objet pokemon à editer*/}
         </div>
       ) : (

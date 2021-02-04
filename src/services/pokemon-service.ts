@@ -42,7 +42,20 @@ Preciser quelle genre de data send to API RESt, elle aura du JSON*/
     })
     .then(response => response.json())
     .catch(error => this.handleError(error));
-}
+  }
+
+  //ajouter un pok
+  static addPokemon(pokemon: Pokemon): Promise<Pokemon> {
+    delete pokemon.created; //suppr la propr d'un pok
+
+    return fetch(`http://localhost:3003/pokemons`, {
+      method: 'POST',
+      body: JSON.stringify(pokemon),
+      headers: { 'Content-Type': 'application/json'}
+    })
+    .then(response => response.json())
+    .catch(error => this.handleError(error));
+    }
  
   static isEmpty(data: Object): boolean {
     return Object.keys(data).length === 0;
