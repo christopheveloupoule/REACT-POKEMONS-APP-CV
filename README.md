@@ -90,8 +90,13 @@ service/pokemon-service.ts
 45/service/pokemon-service.ts : on a facto ns 2 req (getPokemons et utilisation fetch METHOD)
 On utilise static puis il faudra brancher nos composants précedent 
 pokemon-list / pokemon-detail / pokemon-edit sr ce pokemon-service.ts 
-46/
-47/
+46/Gerer ls error : si la req n'aboutit pas alors utilisat° de la METHOD catch()
+qui est une methode ds promess retourner par fetch
+47/BRANCHER NOTRE FORMULAIRE EDITION A NOTRE APIREST 
+48/Modifier un pok : nouvelle meth d'ou nvelle req http ds notre pokemon-service.ts 
+Pr info, chaque req http, contien une 'method,un body,un headers'
+49/Save les modif du user
+
 
 
 
