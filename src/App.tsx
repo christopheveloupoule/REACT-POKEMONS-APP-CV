@@ -4,6 +4,7 @@ import React, { FunctionComponent/*, useState, useEffect*/} from 'react';
 import PokemonList from './pages/pokemon-list';
 import PokemonsDetail from './pages/pokemon-detail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import PageNotFound from './pages/page-not-found';
   
 const App: FunctionComponent = () => {/*{ //def a state
  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -16,7 +17,7 @@ useEffect(() => { //life cycle
 
  return ( //Virtual DOM - utilisation de materialise (css)
   /*<PokemonList />*/
-  <Router>
+   <Router>
       <div>
           {/*La barre de nav commun à ttes ls pages*/}
         <nav> 
@@ -29,6 +30,7 @@ useEffect(() => { //life cycle
           <Route exact path="/" component={PokemonList} />
           <Route exact path="/pokemons" component={PokemonList} />
           <Route path="/pokemons/:id" component={PokemonsDetail} />
+          <Route component={PageNotFound} /> {/*attention à l'ordre de declaration ds routes*/} 
         </Switch>
       </div>
     </Router>

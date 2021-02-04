@@ -38,7 +38,8 @@ du composant / liste des pok load only one time
 22/Navigation via react router dom
 23/La navigation le fichier App.tsx
 24/useHistory pour la redirecetion vers la page d'un pokemon (et non un link pour vr une seconde méthode)
-25/
+25/Gerer ls erreurs 404 si un user n'arriverait pas à accéder à une page de nav...
+(pages/page-not-found.tsx et App.tsx pr intercepter tts les routes non trouvés (mauvais url...))
 26/
 27/
 28/
