@@ -37,7 +37,7 @@ du composant / liste des pok load only one time
 //////////////////////////////////////////////////////////////////////////////
 22/Navigation via react router dom
 23/La navigation le fichier App.tsx
-24/
+24/useHistory pour la redirecetion vers la page d'un pokemon (et non un link pour vr une seconde méthode)
 25/
 26/
 27/
