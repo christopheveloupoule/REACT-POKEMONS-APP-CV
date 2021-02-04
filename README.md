@@ -75,9 +75,15 @@ npm install -g json-server
 40/On crée une mini db 'db.json' dans le folder models , les modifs seront save ds ce fichier!
 API pas encore prete, il faut encore la demarrer pour à court terme ne plus utiliser le mock-pockemon.ts
 On modifie le fichier format-date.ts , on lui passe new Date car le fichier db.JSON est statique
-41/
-42/
-43/
+41/Demarrage de notre API REST : json-server --watch src/models/db.json --port=3001
+cde a 2 param watch(indique l'emplacement de notre fichier qui sert de db dans notre cas le db.json)
+ & port (sur lequel on veut demarrer notre api rest 3001 ds notre cas, react utilise deja le port 3000)
+42/On met en place ds le package.json un raccourci de cde au niveau du script
+"start:api": "json-server --watch src/models/db.json --port=3000 --delay=500"
+On execute la cde npm run start:api
+43/Consommer l'API REST sur notre machine local, maintenant il ns faut utiliser ts cela depuis notre appli
+On va dc recupérer les Pokemons affiché ds notre appli depuis un SERVER distant plutot que depuis une simple cst (mock-pockemon.ts)
+Fetch API, sorte de spécicat° supporté pr ls navigateurs & JS...METHOD global FETCh(renvoie une promess qui facilite ls traitemnts async) envoie de requete de maniere Async
 44/
 45/
 46/
