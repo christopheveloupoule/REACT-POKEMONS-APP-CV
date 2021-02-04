@@ -43,6 +43,9 @@ si aucun pokemon trouver de cette façon alors pokemon = 0*/
             <div className="card hoverable"> 
               <div className="card-image">
                 <img src={pokemon.picture} alt={pokemon.name} style={{width: '250px', margin: '0 auto'}}/>
+                <Link to={`/pokemons/edit/${pokemon.id}`} className="btn-floating halfway-fab waves-effect waves-light">
+                  <i className="material-icons">edit</i>
+                </Link> {/*Ajout du bouton d'edition (avc qqs classes de materialise pr positionner le bouton correctement)*/}
               </div>
               <div className="card-stacked">
                 <div className="card-content">

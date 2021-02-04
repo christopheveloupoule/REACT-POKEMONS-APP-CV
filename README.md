@@ -52,7 +52,7 @@ url :/pokemons/edit/7 | puis le composant controlé pr implémenter le "formulai
 26/components/pokemon-form.tsx page du formulaire statique
 27/Puis on va l'intégrer à un autre composant pokemon-edit.tsx
 28/Ajout d'une nvelle route dans le App.tsx
-29/Modifie du file pokemon-detail (via un bouton 'crayon' et donc d'eviter de taper l'url)
+29/Modifie du file pokemon-detail (ajout d'un bouton 'crayon' et donc d'eviter de taper l'url)
 30/
 31/
 32/
