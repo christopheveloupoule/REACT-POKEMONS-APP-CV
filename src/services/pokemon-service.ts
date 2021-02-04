@@ -21,7 +21,7 @@ export default class PokemonService {
    //Method update pokemon permet de push ls modif°
   //apporter sr le pokemon passer en param vrs notre API REST
   static updatePokemon(pokemon: Pokemon): Promise<Pokemon> {
-    return fetch(`http://localhost:3000/pokemons/${pokemon.id}`, {
+    return fetch(`http://localhost:3001/pokemons/${pokemon.id}`, {
       method: 'PUT', //def du type de req
       body: JSON.stringify(pokemon), /*2eme param a la METHOD FETCH.
 Pr Transmettr ls data du pok vrs le reseau, on encode ts ça ds une str
@@ -33,6 +33,16 @@ Preciser quelle genre de data send to API RESt, elle aura du JSON*/
     .then(response => response.json())
     .catch(error => this.handleError(error));
   }
+
+//Effacer un pok
+  static deletePokemon(pokemon: Pokemon): Promise<{}> { //retourne un obj vide
+    return fetch(`http://localhost:3003/pokemons/${pokemon.id}`,{
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json'}
+    })
+    .then(response => response.json())
+    .catch(error => this.handleError(error));
+}
  
   static isEmpty(data: Object): boolean {
     return Object.keys(data).length === 0;

@@ -95,7 +95,14 @@ qui est une methode ds promess retourner par fetch
 47/BRANCHER NOTRE FORMULAIRE EDITION A NOTRE APIREST 
 48/Modifier un pok : nouvelle meth d'ou nvelle req http ds notre pokemon-service.ts 
 Pr info, chaque req http, contien une 'method,un body,un headers'
-49/Save les modif du user
+49/Save les modif du user & update method
+50/Delete method service/pokemon-service.ts puis MAJ interface de pokemon-form.tsx
+51/
+52/
+53/
+54/
+55/
+
 
 
 

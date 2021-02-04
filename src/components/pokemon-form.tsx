@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Pokemon from '../models/pokemon';
 import formatType from '../helpers/format-type';
+import PokemonService from '../services/pokemon-service';
   
 type Props = {
   pokemon: Pokemon
@@ -88,7 +89,11 @@ lors de l'interaction avec un type de pokemon*/
     //console.log(form); //affiche les données dans le state du formulaire ds la console du navigateur
     const isFormValid = validateForm(); //On recup le resultat de la validation de nos champs
     if(isFormValid) { //redirection vers la page de detail d'un "pokemon" ssi le formulaire est valide
-      history.push(`/pokemons/${pokemon.id}`); 
+      pokemon.name = form.name.value;
+      pokemon.hp = form.hp.value;
+      pokemon.cp = form.cp.value;
+      pokemon.types = form.types.value;
+      PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`)); 
     //Enfin on redirige le user vers la page de detail d'un pokemon*/  
     /*history.push(`/pokemons/${pokemon.id}`);*/
     }
@@ -152,6 +157,11 @@ lors de l'interaction avec un type de pokemon*/
     return true;
   }
 
+  //On implémente une method DeletePokemon
+  const deletePokemon = () => {
+    PokemonService.deletePokemon(pokemon).then(() => history.push(`/pokemons`));
+  }
+
   return ( //Utilisation de materialize (classeName)
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="row">
@@ -159,6 +169,9 @@ lors de l'interaction avec un type de pokemon*/
           <div className="card hoverable"> 
             <div className="card-image">
               <img src={pokemon.picture} alt={pokemon.name} style={{width: '250px', margin: '0 auto'}}/>
+              <span className="btn-floating halfway-fab waves-effect waves-light">
+                <i onClick={deletePokemon} className="material-icons">delete</i>
+              </span>{/*Suppress° du pokemon depuis l'APIREST*/}
             </div>
             <div className="card-stacked">
               <div className="card-content">
