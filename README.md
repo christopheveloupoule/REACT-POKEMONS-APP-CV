@@ -36,7 +36,7 @@ du composant / liste des pok load only one time
 21/Rajout des methodes formatDate & formatType puis export
 //////////////////////////////////////////////////////////////////////////////
 22/Navigation via react router dom
-23/
+23/La navigation le fichier App.tsx
 24/
 25/
 26/
