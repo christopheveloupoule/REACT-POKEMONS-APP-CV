@@ -53,10 +53,11 @@ url :/pokemons/edit/7 | puis le composant controlé pr implémenter le "formulai
 27/Puis on va l'intégrer à un autre composant pokemon-edit.tsx
 28/Ajout d'une nvelle route dans le App.tsx
 29/Modifie du file pokemon-detail (ajout d'un bouton 'crayon' et donc d'eviter de taper l'url)
-30/
-31/
-32/
-33/
+30/Sur le formulaire edition : initialiser un state pr notre formulaire representant les diff
+champs avec les donnees du pokemon concerné puis pousser ces diff valeur ds le formulaire
+31/Combinaison de ces 2 types permettra de structurer le state utiliser pr notre 'form' d'edition
+32/on cree un state pour modeliser les données qui vt etre gerer pr le form d'edition
+33/Données préremplie dans le formulaire d'edition
 34/
 35/
 
