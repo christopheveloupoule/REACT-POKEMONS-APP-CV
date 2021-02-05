@@ -52,19 +52,9 @@ Methode JS native "includes" pr determiner si un type appartient
 à un type de pokemon ou non, cette methode renvoi d'elle meme un booleen
 puis application de la méthode pr cocher/decocher la case*/
 
-     const hasType = (type: string): boolean => {
+    const hasType = (type: string): boolean => {
       return form.types.value.includes(type);
     }
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const fieldName: string = e.target.name; /* nm du chp  à modifier*/ 
-      const fieldValue: string = e.target.value; /*Valeur saisie par le user*/ 
-      const newField: Field = { [fieldName]: { value: fieldValue } }; //regroupement des nouvelles valeurs saisies
-
-    setForm({ ...form, ...newField});
-    }
-/*on modifie l'etat de notre formulaire grace à la méthode 'setForm' fournit pr le hookState
-spread operator pr fusionner 2 objets, nouvelle donnée 'newField' ecrase la précédente*/
 
 /*MAJ de notre STATE lorsque le USER va cocher/decocher la case 
 lors de l'interaction avec un type de pokemon*/
@@ -85,6 +75,16 @@ lors de l'interaction avec un type de pokemon*/
 
       setForm({...form, ...{ types: newField }}); //Maj du STATE de notre form via le sread operator
     }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const fieldName: string = e.target.name; /* nm du chp  à modifier*/ 
+      const fieldValue: string = e.target.value; /*Valeur saisie par le user*/ 
+      const newField: Field = { [fieldName]: { value: fieldValue } }; //regroupement des nouvelles valeurs saisies
+
+    setForm({ ...form, ...newField});
+    }
+/*on modifie l'etat de notre formulaire grace à la méthode 'setForm' fournit pr le hookState
+spread operator pr fusionner 2 objets, nouvelle donnée 'newField' ecrase la précédente*/
 
   const isAddForm = () => {
     return !isEditForm;
@@ -114,7 +114,7 @@ lors de l'interaction avec un type de pokemon*/
     }
 
       // Validator name (express reg qui n'accepte que ds strings maj ou min entre 3 et 25 caracteres)
-      if(!/^[a-zA-Zàéè ]{3,25}$/.test(form.name.value)) { //la méthode "test" pr tester la validité d'un champ
+    if(!/^[a-zA-Zàéè ]{3,25}$/.test(form.name.value)) { //la méthode "test" pr tester la validité d'un champ
       const errorMsg: string = 'Le nom du pokémon est requis (1-25).';
       const newField: Field = { value: form.name.value, error: errorMsg, isValid: false };
       newForm = { ...newForm, ...{ name: newField } };
@@ -178,7 +178,7 @@ lors de l'interaction avec un type de pokemon*/
       pokemon.hp = form.hp.value;
       pokemon.cp = form.cp.value;
       pokemon.types = form.types.value;
-      
+      PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`)); 
       isEditForm ? updatePokemon() : addPokemon(); //edition ou ajout d'un nvx pokemon
     
       //Enfin on redirige le user vers la page de detail d'un pokemon*/  

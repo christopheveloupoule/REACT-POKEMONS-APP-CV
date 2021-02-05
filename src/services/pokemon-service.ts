@@ -27,7 +27,7 @@ export default class PokemonService {
 Pr Transmettr ls data du pok vrs le reseau, on encode ts ça ds une str
 grace à la METHOD 'JSON.stringify', method JS nativ. Elle transf un {} en string 
 Preciser quelle genre de data send to API RESt, elle aura du JSON*/
-        headers: { 'Content-Type': 'application/json'} 
+      headers: { 'Content-Type': 'application/json'} 
 // Entete pour preciser quelle genre de data send to API RESt, data de type 'JSON'
     })   
     .then(response => response.json())

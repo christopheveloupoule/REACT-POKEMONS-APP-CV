@@ -65,16 +65,6 @@
       ]
     },
     {
-      "id": 8,
-      "name": "Abo",
-      "hp": "160",
-      "cp": 4,
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
-      "types": [
-        "Poison"
-      ]
-    },
-    {
       "id": 9,
       "name": "Pikachu",
       "hp": 21,
