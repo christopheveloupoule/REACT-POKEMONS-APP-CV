@@ -95,16 +95,6 @@
       ]
     },
     {
-      "id": 12,
-      "name": "Groupix",
-      "hp": 17,
-      "cp": 8,
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
-      "types": [
-        "Feu"
-      ]
-    },
-    {
       "id": 1,
       "name": "Bulbizarre",
       "hp": 25,
