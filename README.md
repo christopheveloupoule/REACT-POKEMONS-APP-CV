@@ -1,5 +1,9 @@
 # REACT-POKEMONS-APP-CV
-Application de POKEMONS côté Front-end
+Application de POKEMONS côté Front-end:
+
+https://pokedex-cv.netlify.app/ 
+Please enter id : pikachu
+            pwd : pikachu
 
 1/Je pars d'un fichier vide pour créer mon dossier REACT
 2/creation du package.json
