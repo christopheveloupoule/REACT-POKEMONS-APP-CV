@@ -13,7 +13,7 @@
     {
       "id": 3,
       "name": "Carapuce",
-      "hp": "210",
+      "hp": "21",
       "cp": "6",
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
       "types": [
@@ -102,6 +102,18 @@
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
       "types": [
         "Plante",
+        "Poison"
+      ]
+    },
+    {
+      "id": 1612909768347,
+      "hp": 100,
+      "cp": 10,
+      "name": "Treela",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/185.png",
+      "types": [
+        "Plante",
+        "Eau",
         "Poison"
       ]
     }

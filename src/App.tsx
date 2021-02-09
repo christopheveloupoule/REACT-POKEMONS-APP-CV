@@ -1,6 +1,6 @@
 import React, { FunctionComponent/*, useState, useEffect*/} from 'react';
-//import Pokemon from './models/pokemon';
-//import POKEMONS from './models/mock-pokemon';
+//import Pokemon from './models/pokemon'; //recupération du model representant un pok afin de pouvoir typé ns variables
+//import POKEMONS from './models/mock-pokemon'; //Ajout de la cst pokemon qui contient les données ds différents pok
 import PokemonList from './pages/pokemon-list';
 import PokemonsDetail from './pages/pokemon-detail';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -11,12 +11,14 @@ import Login from './pages/login';
 import PrivateRoute from './PrivateRoute';
   
 const App: FunctionComponent = () => {/*{ //def a state
- const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+ const [pokemons, setPokemons] = useState<Pokemon[]>([]); //cst dynamique grace à REACT
+ //On declare une variable pokemons et on l'initaliser avec un [] pokemon vide
+ //<Pokemon[]> typage de donnée correspondant à un []
     
-
-useEffect(() => { //life cycle
-    setPokemons(POKEMONS);
-}, []);*/
+Prends 2arg, une fct et tableau []
+useEffect(() => { //life cycle equivalent | 
+    setPokemons(POKEMONS); //methode d'etat setPokemons appelé en lui passant la liste de POKEMONS to display
+}, []);*/ //tableau [] permet d'eviter de declencer le hook d'effet à chaque modife
 
 
  return ( //Virtual DOM - utilisation de materialise (css)
@@ -34,7 +36,7 @@ useEffect(() => { //life cycle
           <PrivateRoute exact path="/" component={PokemonList} />
           <Route exact path="/login" component={Login}/> {/*Non proteger cr accessible à tlm*/}
           <PrivateRoute exact path="/pokemons" component={PokemonList} />
-          <PrivateRoute exact path="/pokemons/add" component={PokemonAdd} />
+          <PrivateRoute exact path="/pokemon/add" component={PokemonAdd} />
           <PrivateRoute exact path="/pokemons/edit/:id" component={PokemonEdit} /> {/*Contient notre formulaire d'edition*/}
           <PrivateRoute path="/pokemons/:id" component={PokemonsDetail} />
           <PrivateRoute component={PageNotFound} /> {/*attention à l'ordre de declaration ds routes*/} 

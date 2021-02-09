@@ -12,13 +12,13 @@ recup depuis l'URL, cet id est envoyé sous la forme d'une
 chaine de caractère par le router de react */
 type Params = { id: string };
 
-/*on utilise l'importat° RouteComponentProps précédente pr typer 
-le parmètre reçu depuis le routeur */ 
+/*on utilise l'importat° 'RouteComponentProps' précédente pr typer 
+le parmètre reçu depuis le routeur, pas une prop classique, donnée qui vient de l'url*/ 
 const PokemonsDetail: FunctionComponent<RouteComponentProps<Params>> = ({ match }) => {
 
 /*On def un state pr save le pokemon à afficher
 par def, state a la valeur null
-<Pokemon|null soit valeur de Pokemon soit null...*/
+<Pokemon|null> soit valeur de Pokemon soit valeur null, sorte de type hybride...*/
     
   const [pokemon, setPokemon] = useState<Pokemon|null>(null);
   
@@ -29,8 +29,8 @@ au state du composant via la méthode setPokemon,
 si aucun pokemon trouver de cette façon alors pokemon = 0*/
 
   useEffect(() => {
-    /*POKEMONS.forEach(pokemon => {
-      if (match.params.id === pokemon.id.toString()) {
+    /*POKEMONS.forEach(pokemon => { //boucle permet de retrouver le pok avc l'id passé en param
+      if (match.params.id === pokemon.id.toString()) { //si aucun pokemon trouver alors pokemon vaut null
         setPokemon(pokemon);
       }
     })*/
@@ -47,7 +47,6 @@ si aucun pokemon trouver de cette façon alors pokemon = 0*/
   de notre service attend un nbre en paramètre
   Method getPokemon de notre service pr recupèrer un Pokemon unique
    */
-
   }, [match.params.id]);
     
   return (

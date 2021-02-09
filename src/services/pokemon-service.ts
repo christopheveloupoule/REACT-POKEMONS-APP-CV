@@ -2,9 +2,9 @@ import Pokemon from "../models/pokemon";
  
 export default class PokemonService {
 
-//ajout de la req qui permet de recup ts les pok ds la methode getPokemons()
-// la method retourne le resultat del aMETHO fetch qui est une prommess contenant un []
-//de pokemons d'ou le type Promise<Pokemon[]>
+/*ajout de la req qui permet de recup ts les pok ds la methode getPokemons()
+la method retourne le resultat de la METHOD fetch qui est une prommess contenant un []
+de pokemons d'ou le type Promise<Pokemon[]>*/
   static getPokemons(): Promise<Pokemon[]> { 
     return fetch('http://localhost:3001/pokemons')
       .then(response => response.json())
@@ -55,12 +55,12 @@ Preciser quelle genre de data send to API RESt, elle aura du JSON*/
     })
     .then(response => response.json())
     .catch(error => this.handleError(error));
-    }
+  }
   
   //Method search
   static searchPokemon(term: string): Promise<Pokemon[]> { //retourne une promess qui renvoi un arr de Pokemon
-    return fetch(`http://localhost:3001/pokemons?q=${term}`) //Method Fetch, utilisat° d'une url special qui permet de filter ls Pokemons
-    //d'apres lr nom en fct d'un terme de recherche entré pr le user
+    return fetch(`http://localhost:3001/pokemons?q=${term}`) /*Method Fetch, utilisat° d'une url special qui permet de filter ls Pokemons
+    d'apres lr nom en fct d'un terme de recherche entré pr le user*/
     .then(response => response.json())
     .catch(error => this.handleError(error));
   }

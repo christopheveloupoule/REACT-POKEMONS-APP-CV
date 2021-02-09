@@ -29,17 +29,17 @@ const PokemonList: FunctionComponent = () => {
       <h1 className="center">Pokédex</h1>
       <div className="container"> 
         <div className="row"> 
-        <PokemonSearch /> {/*Ajout recherche de Pokemon et import...*/}
-        {pokemons.map(pokemon => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
-        ))}
+          <PokemonSearch /> {/*Ajout recherche de Pokemon et import...*/}
+          {pokemons.map(pokemon => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          ))}
         </div>
-        <Link className="btn-floating btn-large waves-effect waves-light red z-depth-3"
+      </div>
+      <Link className="btn-floating btn-large waves-effect waves-light red z-depth-3"
         style={{position: 'fixed', bottom: '25px', right: '25px'}}
         to="/pokemon/add">
           <i className="material-icons">add</i>
-        </Link>
-      </div>
+      </Link>
     </div> 
   );
 }

@@ -9,7 +9,7 @@ type Props = {
   isEditForm: boolean
 };
 
-//Declarer 2 nveaux types pr mieux modéliser ns formulaire:
+//Declarer 2 nveaux types pr mieux modéliser notre formulaire:
 //Formulaire saisi ds le champ si valide ou non
 type Field = { //modelise un champ ds notre form
   value?: any,
@@ -31,7 +31,7 @@ type Form = {
   
 const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
 
-  const [form, setForm] = useState<Form>({ //données uniquemnt present ds le state
+  const [form, setForm] = useState<Form>({ //on declare notre State, qui represente ls champs & ls données de notre formulaire
     picture: { value: pokemon.picture },
     name: { value: pokemon.name, isValid: true },
     hp: { value: pokemon.hp, isValid: true },
@@ -41,16 +41,16 @@ const PokemonForm: FunctionComponent<Props> = ({pokemon, isEditForm}) => {
 
   const history = useHistory();
   
-  const types: string[] = [ //contain all free pokemon to display in a form
+  const types: string[] = [ //contain all free pokemon in order to display in the form
     'Plante', 'Feu', 'Eau', 'Insecte', 'Normal', 'Electrik',
     'Poison', 'Fée', 'Vol', 'Combat', 'Psy'
   ];
   
 /*Methode renvoi un simple 'boolean' permettant de savoir si le type
 passé en paramètre appartient ou non à un pokemon
-Methode JS native "includes" pr determiner si un type appartient
-à un type de pokemon ou non, cette methode renvoi d'elle meme un booleen
-puis application de la méthode pr cocher/decocher la case*/
+Methode JS native "includes" pr determiner si un type appartient au []
+d'un type de pokemon ou non, cette methode renvoi d'elle meme un booleen
+puis application de la méthode pr cocher/decocher ls cases d'un type de pok*/
 
     const hasType = (type: string): boolean => {
       return form.types.value.includes(type);
@@ -110,7 +110,6 @@ spread operator pr fusionner 2 objets, nouvelle donnée 'newField' ecrase la pr�
         const newField: Field = { value: form.picture.value, error: '', isValid: true };
         newForm = { ...newForm, ...{ picture: newField } };
       }
-
     }
 
       // Validator name (express reg qui n'accepte que ds strings maj ou min entre 3 et 25 caracteres)
@@ -187,11 +186,11 @@ spread operator pr fusionner 2 objets, nouvelle donnée 'newField' ecrase la pr�
   }
 
   const addPokemon = () => {
-    PokemonService.addPokemon(pokemon).then(() => history.push(`/pokemons`));
+    PokemonService.addPokemon(pokemon).then(() => history.push(`/pokemons`)); //Method ajout d'un pok redirige vers tous les pok
   }
   
   const updatePokemon = () => {
-    PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`));
+    PokemonService.updatePokemon(pokemon).then(() => history.push(`/pokemons/${pokemon.id}`)); //Method Update d'un pok redirige vers la page de ce pok
   }
 
   //On implémente une method DeletePokemon

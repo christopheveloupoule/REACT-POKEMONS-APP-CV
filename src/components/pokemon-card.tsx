@@ -11,7 +11,7 @@ type Props = { //On def un nouveau type pr typescript
   };
   
 const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688'}) => {
-    const [color, setColor]= useState<string>(); //couleur crte ds le State 'color'
+    const [color, setColor]= useState<string>(); //Ajout d'un State pr stocker la couleur actuelle de la bordure
     const history = useHistory(); /*on recupere un {} representant l'history du navigateur
     depuis le hook que ns venons d'importer*/
 
