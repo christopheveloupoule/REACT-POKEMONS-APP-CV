@@ -160,6 +160,12 @@ Authentification
 42/Proteger l'acces aux routes (PrivateRoute.tsx) et import ds App.tx
 Conclusion: L'auth permet de restreindre l'accès à certaines fonctionnalités de notre appli
 *************************************************************************
+DEPLOIEMENT
+************************************************************************
+43/
+44/
+
+
 npm start (react port 3000) | npm run start:api (port 3001)
 
 
