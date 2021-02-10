@@ -1,10 +1,9 @@
 # REACT-POKEMONS-APP-CV
 Application de POKEMONS côté Front-end:
 
-https://pokedex-cv.netlify.app/ 
+https://pokedex-6ec0f.web.app/login
 Please enter id : pikachu
             pwd : pikachu
-
 
 *TypeScript : Typage de variables
 Langage de prog libre et open source qui a pr but d'améliorer et de securiser la production de code JS (evite le code spaghetti).
@@ -160,12 +159,23 @@ Authentification
 42/Proteger l'acces aux routes (PrivateRoute.tsx) et import ds App.tx
 Conclusion: L'auth permet de restreindre l'accès à certaines fonctionnalités de notre appli
 *************************************************************************
-DEPLOIEMENT
+DEPLOIEMENT (passer du dev à une application utlisable pr ls users)
 ************************************************************************
-43/
-44/
+43/Compresser ns fichiers pr qu'ils se chargnt + vite ds le navigateur ds users
+Se débrouiller pr simuler une  APIRest en Production | La librairie JSON-server ne fonctionne que sr notre machine locale
+donc un certain nbre d'operation sr notre projet avant de le déployer: Prepare notre projet en local avant déploiement (React a deja tt prévu, pas grand chose à faire de notre côté) | Créer le projet sr Firebase (hosting) | Deployer notre appli notre appli sr Firebase
+44/Ts les appels à notre APIRest se fait via le pokemon-service.ts, il n'y a dc qu'un seul fichier à adapter
+45/npm run build, contruction du dossier 'build' (du livrable de notre application, tout y est mimifié et compressé et donc ultra optimisé)
+46/npm install -g serve (npm va deployer un petit paquet comme si on etait on Prod) | serve -s build
+47/Deployer firebase hosting: 
+*creer un projet sous firebase pr pouvoir l'administré : sur google "Ajouter un projet (pas de google analytics)", cliker sur hosting
+*install firebase CLI en local pr dployer l'appli en une seul ligne de cde sur ls serveurs de google: npm install -g firebase-tools | firebase --version (n° de versionqui s'affiche si utilitaire bien installé) | firebase login (connexion compte google depuis le CLI)
+*configurer notre projet firebase pr préparer certains elements specifik qu deploiement: Dossier 'build' sur la machine doit correspondre au dossier crée à distance sur Firebase et je veux déployer ms fichiers prets à la Production sur les serveurs Firebase via 'firebase init'
+d'ou '.firebaserc et firebase.json' crée sous vsc
+*deploiement final de notre appli sr firebase : 
+*Finalité : Avoir acces à l'appli n'importe ou sur le net
 
-
+******************************************************************************************************************
 npm start (react port 3000) | npm run start:api (port 3001)
 
 

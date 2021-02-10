@@ -3,36 +3,36 @@ import POKEMONS from "../models/mock-pokemon";
   
 export default class PokemonService {
   
-  static pokemons:Pokemon[] = POKEMONS;
+  static pokemons:Pokemon[] = POKEMONS; //On def une variable static pr Save temporairement l'etat ds poks ds notre appli
   
-  static isDev = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development');
+  static isDev = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development'); // On retient l'environnement ds lequel on se trouve
   
 
  /*ajout de la req qui permet de recup ts les pok ds la methode getPokemons()
 la method retourne le resultat de la METHOD fetch qui est une prommess contenant un []
 de pokemons d'ou le type Promise<Pokemon[]>*/
   static getPokemons(): Promise<Pokemon[]> {
-    if(this.isDev) {
-      return fetch('http://localhost:3001/pokemons')
+    if(this.isDev) { //Si on est en developpement, on fait un appel à notre APIRest
+      return fetch('http://localhost:3001/pokemons') //renvoi la liste ds pokemons
       .then(response => response.json())
       .catch(error => this.handleError(error)); //err eventuel de notre promess à notre handleError
     }
   
-    return new Promise(resolve => {
-      resolve(this.pokemons);
+    return new Promise(resolve => { // sinon on retourne une promess similaire à l'APIRest
+      resolve(this.pokemons); //promess simulé qui retourne la liste ds pokemons egalement, on retourne la meme chose mais la source ds données est différente
     });
   }
   
   static getPokemon(id: number): Promise<Pokemon|null> { //renvoi soit une pok ou une val null (| en tp)
     if(this.isDev) {
-      return fetch(`http://localhost:3001/pokemons/${id}`) //recupe un seul pok via son id 
+      return fetch(`http://localhost:3001/pokemons/${id}`) //retourne 'un' pok avc le bon id 
       .then(response => response.json())
       .then(data => this.isEmpty(data) ? null : data) //METHOD isEmpty
       .catch(error => this.handleError(error));  //err eventuel de notre promess à notre handleError
     }
   
     return new Promise(resolve => {    
-      resolve(this.pokemons.find(pokemon => id === pokemon.id));
+      resolve(this.pokemons.find(pokemon => id === pokemon.id)); // retourne le meme pokemon, mais on va le chercher ds notre cst de pokemon
     }); 
   }
   

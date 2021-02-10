@@ -116,6 +116,18 @@
         "Eau",
         "Poison"
       ]
+    },
+    {
+      "id": 1612948131295,
+      "hp": "265",
+      "cp": "54",
+      "name": "lala",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/22.png",
+      "types": [
+        "Normal",
+        "Fée"
+      ],
+      "created": "2021-02-10T09:08:51.295Z"
     }
   ]
 }
