@@ -24,7 +24,7 @@ Execution de la cde ds le terminal : npm run start
 Création 'src' à la racine du projet | Création de 'App.tsx' ds le 'src' puis 'index.html' (pas de code JS, juste un pt d'entrée pr notre appli) dans le folder 'public'
 creation du tsconfig.json
 2/Installation Express: npm install express --save
-3/Mise en place d'un place d'un point de terminaison ds le App.js
+3/Mise en place d'un  point de terminaison ds le App.js
 4/Utilisation de nodemon (pr eviter de couper et relancer la meme cde)
 cde : npm install nodemon --save-dev
 puis npm run start ou nodemon app.js
@@ -146,7 +146,7 @@ Conclusion on peut meme developper des requetes avant d'avoir un server
 **************************************************************************
 Autocompletion
 **************************************************************************
-36/Creation de nvelle METHOD search POKEMON dans pokemon-service.ts: en taopant au minimum 2 lettre (METHOD searchPokemon)
+36/Creation de nvelle METHOD search POKEMON dans pokemon-service.ts: en tapant au minimum 2 lettre (METHOD searchPokemon)
 37/Mise en place du composant de recherche pokemon-search.tsx pokemon-service.ts)
 38/Affichage de notre champ de recherche, on rajoute le pokemon-search.tsx dans le template pokemon-list.tsx
 39/On souhaite rajouter une icone de chargement (circulaire via materialize), rajout de delay=500" ds le package.json/
